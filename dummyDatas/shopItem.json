@@ -1,0 +1,34 @@
+{
+   "id":5,
+   "name":"휴대용 사무용 줄자 디자이너 재단 양면 줄자 키홀더형 - Teddy Bear",
+   "titleImgs":[
+      "https://shop-phinf.pstatic.net/20210622_111/1624342207106FPDAs_JPEG/25478049768728675_905951135.jpg?type=f",
+      "https://shop-phinf.pstatic.net/20210622_84/1624342216884GEPO8_JPEG/25478059153039025_2131307812.jpg?type=f",
+      "https://shop-phinf.pstatic.net/20210622_110/16243422256904eSmc_JPEG/25478068346553559_1868537313.jpg?type=f",
+      "https://shop-phinf.pstatic.net/20210622_226/1624341890096k4plT_JPEG/25477732448202560_1946659459.jpg?type=f",
+      "https://shop-phinf.pstatic.net/20210622_259/1624341913100tVHxd_JPEG/25477755804571488_1144437231.jpg?type=f",
+      "https://shop-phinf.pstatic.net/20210622_14/1624341953964CMOcX_JPEG/df208792-d31f-11eb-a02a-a0369ff963bc_05.jpg?type=f"
+   ],
+   "descriptionImg":"https://artshare.speedgabia.com/wiggle_new_web/Measuring%20Tape/MT-03.jpg",
+   "originPrice":12000,
+   "realPrice":10000,
+   "averageScore":4.0,
+   "reviewCount":30,
+   "reviews":[
+      {   "id":1,
+          "userName":"test****",
+          "score":5.0,
+          "description":"정말 마음에 들어요!"
+      },
+            {   "id":2,
+          "userName":"test****",
+          "score":3.0,
+          "description":"보통이에요!"
+      },
+            {   "id":3,
+          "userName":"test****",
+          "score":4.0,
+          "description":"마음에 드는데 비싼감이 있어요!"
+      }
+   ]
+}
