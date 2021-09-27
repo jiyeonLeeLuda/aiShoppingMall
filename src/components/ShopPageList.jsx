@@ -3,15 +3,11 @@ import styled from '@emotion/styled';
 import ShopPageListItem from './ShopPageListItem';
 
 const GridContainer = styled.div({
-  display: 'grid',
-  gridAutoFlow: 'row',
-  gridTemplateColumns: 'repeat(auto-fill, minmax(30%, auto))',
-  gridGap: '30px 10px',
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
   alignItems: 'center',
-  alignContent: 'space-around',
-  '& a': {
-    textDecoration: 'none',
-  },
+  gridGap: '30px 10px',
 });
 
 export default function ShopPageList({ items }) {
