@@ -48,4 +48,13 @@ describe('ItemDetailContainer', () => {
       expect(dispatch).toBeCalled();
     });
   });
+
+  context('when click "상세보기 썸네일 이미지"', () => {
+    it('updates detailImgIndex', () => {
+      const { getAllByRole } = renderAmountContainer();
+      const thumnails = getAllByRole('listitem');
+      fireEvent.click(thumnails[0]);
+      expect(dispatch).toBeCalled();
+    });
+  });
 });

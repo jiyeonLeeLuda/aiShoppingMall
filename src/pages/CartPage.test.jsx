@@ -26,9 +26,7 @@ describe('CartPage', () => {
       const { container } = renderCartPage();
 
       expect(container).toHaveTextContent('Cart');
-      expect(dispatch).toBeCalledWith({
-        type: 'application/synchonizeCart',
-      });
+      expect(dispatch).toBeCalled();
       expect(container).toHaveTextContent('장바구니가 비었어요');
     });
   });
@@ -52,9 +50,7 @@ describe('CartPage', () => {
       const { container } = renderCartPage();
 
       expect(container).toHaveTextContent('Cart');
-      expect(dispatch).toBeCalledWith({
-        type: 'application/synchonizeCart',
-      });
+      expect(dispatch).toBeCalled();
       expect(container).toHaveTextContent('A4 클립보드');
       expect(container).toHaveTextContent('2,000 원');
       expect(container).toHaveTextContent(

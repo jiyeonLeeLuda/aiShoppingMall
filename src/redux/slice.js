@@ -8,10 +8,17 @@ import {
 const initialState = {
   sortOption: '',
   itemAmount: 1,
+  detailImgIndex: 0,
   cart: [],
 };
 
 const reducers = {
+  selectDetailImgIndex(state, { payload: detailImgIndex }) {
+    return {
+      ...state,
+      detailImgIndex,
+    };
+  },
   selectSortOption(state, { payload: sortOption }) {
     return {
       ...state,
@@ -127,6 +134,7 @@ export const {
   removeSelectedCartIem,
   setCart,
   changeCartItemAmount,
+  selectDetailImgIndex,
 } = actions;
 
 export function synchonizeCart() {
