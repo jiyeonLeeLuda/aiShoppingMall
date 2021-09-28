@@ -20,22 +20,17 @@ const ImgViewer = styled.img({
 });
 const Previewer = styled.li({
   marginRight: '0.2em',
-  '& img': {
-    '&:hover': {
-      border: 'solid',
-    },
-  },
 });
 
-export default function ImgArea({ shopItem }) {
+export default function ImgArea({ shopItem, detailImgIndex, handleDetailImgIndex }) {
   const { name, titleImgs } = shopItem;
 
   return (
     <ImgGroup>
-      <ImgViewer src={`${titleImgs[0]}300`} alt={name} />
+      <ImgViewer src={`${titleImgs[detailImgIndex]}300`} alt={name} />
       <PreviewGroup>
-        {titleImgs.map((img) => (
-          <Previewer key={img}>
+        {titleImgs.map((img, index) => (
+          <Previewer key={img} onClick={() => { handleDetailImgIndex(index); }}>
             <img src={`${img}40`} alt={name} />
           </Previewer>
         ))}

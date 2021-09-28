@@ -2,11 +2,16 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from '@emotion/styled';
 
-import { changeItemAmountField, addItemToCart } from '../../redux/slice';
+import {
+  changeItemAmountField,
+  addItemToCart,
+  selectDetailImgIndex,
+} from '../../redux/slice';
 import { get } from '../../util/commonUtils';
 import { dummyItems } from '../../../dummyDatas/shopItems.json';
 import InfoArea from './InfoArea';
 import ImgArea from './ImgArea';
+// import ImgAreaSwiper from './ImgAreaSwiper';
 
 const HeadGroup = styled.div({
   display: 'flex',
@@ -28,15 +33,22 @@ export default function ItemDetailContainer({ id }) {
   const shopItem = dummyItems.find((item) => item.id === Number(id));
 
   const itemAmount = useSelector(get('itemAmount'));
+  const detailImgIndex = useSelector(get('detailImgIndex'));
   const dispatch = useDispatch();
 
   useEffect(() => {
     const defaultItemAmount = 1;
+    const defaultDetailImgIndex = 0;
     return () => {
       // cleanUp : 다른 상품 페이지로 이동할 경우, 수량을 다시 1로 만들어줌.
       dispatch(changeItemAmountField(defaultItemAmount));
+      dispatch(selectDetailImgIndex(defaultDetailImgIndex));
     };
   }, [id]);
+
+  function handleDetailImgIndex(index) {
+    dispatch(selectDetailImgIndex(index));
+  }
 
   function handleAddItemToCart() {
     dispatch(addItemToCart(shopItem));
@@ -50,7 +62,11 @@ export default function ItemDetailContainer({ id }) {
   return (
     <>
       <HeadGroup>
-        <ImgArea shopItem={shopItem} />
+        <ImgArea
+          shopItem={shopItem}
+          detailImgIndex={detailImgIndex}
+          handleDetailImgIndex={handleDetailImgIndex}
+        />
         <InfoArea
           shopItem={shopItem}
           itemAmount={itemAmount}
