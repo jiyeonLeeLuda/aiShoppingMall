@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import MenuBar from '../MenuBar';
 
 const Header = styled.header({
-  backgroundColor: 'orange',
+
   paddingTop: '50px',
   '& img': {
-    margin: '0 auto',
+    margin: 'auto',
   },
 });
 
