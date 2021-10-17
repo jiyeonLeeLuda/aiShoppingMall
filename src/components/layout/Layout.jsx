@@ -4,6 +4,7 @@ import HeaderArea from './HeaderArea';
 import FooterArea from './FooterArea';
 
 const BodyArea = styled.main({
+  height: '100vh',
 });
 
 export default function Layout({ children }) {
