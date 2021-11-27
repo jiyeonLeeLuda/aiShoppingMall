@@ -1,0 +1,33 @@
+.item {
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 1em;
+}
+
+.img {
+}
+.name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.score {
+  margin: 0;
+  height: 2rem;
+}
+
+.price {
+  font-size: 1rem;
+  font-weight: bold;
+}
