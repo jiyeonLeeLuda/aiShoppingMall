@@ -1,0 +1,91 @@
+{
+  "items": [
+    {
+      "id": 2,
+      "name": "A4 클립보드 서류고정 클립파일 메뉴판 - You Make Me Smile",
+      "img": "https://shop-phinf.pstatic.net/20210622_252/1624338139198P3j7V_JPEG/25473972910536764_1080261413.jpg?type=f296_296",
+      "originPrice": 4000,
+      "realPrice": 2000,
+      "score": 3.4,
+      "reviewCount": 3,
+      "reviews": [
+        {
+          "id": 1,
+          "userName": "test****",
+          "score": 5.0,
+          "description": "정말 마음에 들어요!"
+        },
+        {
+          "id": 2,
+          "userName": "test****",
+          "score": 3.0,
+          "description": "보통이에요!"
+        },
+        {
+          "id": 3,
+          "userName": "test****",
+          "score": 4.0,
+          "description": "마음에 드는데 비싼감이 있어요!"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "휴대용 사무용 줄자 디자이너 재단 양면 줄자 키홀더형 - Smile We Love",
+      "img": "https://shop-phinf.pstatic.net/20210622_39/1624341886515xtvIC_JPEG/25477729225157038_889477305.jpg?type=f296_296",
+      "originPrice": 12000,
+      "realPrice": 10000,
+      "score": 4.8,
+      "reviewCount": 50,
+      "reviews": [
+        {
+          "id": 1,
+          "userName": "test****",
+          "score": 5.0,
+          "description": "정말 마음에 들어요!"
+        },
+        {
+          "id": 2,
+          "userName": "test****",
+          "score": 3.0,
+          "description": "보통이에요!"
+        },
+        {
+          "id": 3,
+          "userName": "test****",
+          "score": 4.0,
+          "description": "마음에 드는데 비싼감이 있어요!"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "휴대용 사무용 줄자 디자이너 재단 양면 줄자 키홀더형 - Teddy Bear",
+      "img": "https://shop-phinf.pstatic.net/20210622_111/1624342207106FPDAs_JPEG/25478049768728675_905951135.jpg?type=f296_296",
+      "originPrice": 12000,
+      "realPrice": 10000,
+      "score": 4,
+      "reviewCount": 30,
+      "reviews": [
+        {
+          "id": 1,
+          "userName": "test****",
+          "score": 5.0,
+          "description": "정말 마음에 들어요!"
+        },
+        {
+          "id": 2,
+          "userName": "test****",
+          "score": 3.0,
+          "description": "보통이에요!"
+        },
+        {
+          "id": 3,
+          "userName": "test****",
+          "score": 4.0,
+          "description": "마음에 드는데 비싼감이 있어요!"
+        }
+      ]
+    }
+  ]
+}

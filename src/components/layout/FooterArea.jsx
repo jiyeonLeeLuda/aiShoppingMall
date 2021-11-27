@@ -14,10 +14,10 @@ export default function FooterArea() {
   return (
     <Footer>
       <p>
-        studio XX | studio.luda.work@gmail.com | © 2021 스튜디오 루다 Co. all
+        studio ABC | dlwldusq.work@gmail.com | © 2021 스튜디오 루다 Co. all
         rights reserved.
       </p>
-      <p> 개인 프로젝트로 작업된 웹사이트 입니다.</p>
+      <p> 개인 포트폴리오 프로젝트로 작업된 웹사이트 입니다.</p>
     </Footer>
   );
 }
