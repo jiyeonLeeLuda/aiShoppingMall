@@ -3,7 +3,7 @@ import './App.css';
 
 import HomePage from './pages/home/HomePage';
 import LoginPage from './pages/LoginPage';
-import WorksPage from './pages/WorksPage';
+import BoardPage from './pages/BoardPage';
 import ShopPage from './pages/ShopPage';
 import ShopItemDetailPage from './pages/ShopItemDetailPage';
 import CartPage from './pages/CartPage';
@@ -15,8 +15,8 @@ export default function App() {
     <Switch>
       <Route exact path='/' component={HomePage} />
       <Route path='/login' component={LoginPage} />
-      <Route path='/works/:id' component={WorksPage} />
-      <Route exact path='/works' component={WorksPage} />
+      <Route path='/board/:id' component={BoardPage} />
+      <Route exact path='/board' component={BoardPage} />
       <Route path='/shop/items/:id' component={ShopItemDetailPage} />
       <Route path='/shop/items/' component={ShopPage} />
       <Route path='/cart' component={CartPage} />
