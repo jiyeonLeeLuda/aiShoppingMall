@@ -1,11 +1,18 @@
 .item {
   width: 15rem;
-  display: flex;
-  flex-direction: column;
+
   list-style: none;
   margin: 1em;
 }
-
+.link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #333;
+}
+.link:hover {
+  opacity: 0.8;
+}
 .img {
 }
 .name {

@@ -1,5 +1,5 @@
 {
-  "items": [
+  "aiRecomands": [
     {
       "id": 2,
       "name": "A4 클립보드 서류고정 클립파일 메뉴판 - You Make Me Smile",
@@ -86,6 +86,44 @@
           "description": "마음에 드는데 비싼감이 있어요!"
         }
       ]
+    }
+  ],
+  "bests": [
+    {
+      "id": 1,
+      "name": "빅 마그넷 클립 세트 사무용 자석집게 냉장고 자석 마그네틱 마스크걸이",
+      "originPrice": 4000,
+      "realPrice": 2000,
+      "score": 5,
+      "reviewCount": 15,
+      "img": "https://shop-phinf.pstatic.net/20210622_238/1624341463146EL2rM_JPEG/25477358831686602_1117910248.jpg?type=f296_296"
+    },
+    {
+      "id": 9,
+      "name": "감성 캠핑 접이식 팔걸이 의자 야외 피크닉 릴렉스 체어 - 스마일 가든",
+      "img": "https://shop-phinf.pstatic.net/20210604_36/1622784118917ITyfm_JPEG/f2ac33f3-2716-49e3-9897-3a8360782926.jpg?type=f296_296",
+      "originPrice": 42000,
+      "realPrice": 21000,
+      "score": 5,
+      "reviewCount": 12
+    },
+    {
+      "id": 4,
+      "name": "휴대용 사무용 줄자 디자이너 재단 양면 줄자 키홀더형 - Smile We Love",
+      "img": "https://shop-phinf.pstatic.net/20210622_39/1624341886515xtvIC_JPEG/25477729225157038_889477305.jpg?type=f296_296",
+      "originPrice": 12000,
+      "realPrice": 10000,
+      "score": 4.8,
+      "reviewCount": 50
+    },
+    {
+      "id": 8,
+      "name": "피크닉백 장바구니 접이식 휴대용 시장가방 - Smile We Love Safari",
+      "img": "https://shop-phinf.pstatic.net/20210604_39/16227843288688QSlN_JPEG/5fc53d59-a782-4a02-84ab-5afc918a7930.jpg?type=f296_296",
+      "originPrice": 8000,
+      "realPrice": 5000,
+      "score": 4.3,
+      "reviewCount": 10
     }
   ]
 }
