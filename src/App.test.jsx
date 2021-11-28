@@ -14,25 +14,17 @@ describe('App', () => {
   });
 
   function renderApp({ path }) {
-    return render((
+    return render(
       <MemoryRouter initialEntries={[path]}>
         <App />
       </MemoryRouter>
-    ));
+    );
   }
 
   context('with path /', () => {
     it('renders the home page', () => {
       const { container } = renderApp({ path: '/' });
       expect(container).toHaveTextContent('home');
-    });
-  });
-
-  context('with path /works', () => {
-    it('renders the works page', () => {
-      const { container } = renderApp({ path: '/works' });
-
-      expect(container).toHaveTextContent('works');
     });
   });
 

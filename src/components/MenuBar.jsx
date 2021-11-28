@@ -7,16 +7,16 @@ export default function MenuBar() {
     <div>
       <List>
         <Item>
-          <Link to="/works">Works</Link>
+          <Link to='/shop/items'>Shop</Link>
         </Item>
         <Item>
-          <Link to="/shop/items">Shop</Link>
+          <Link to='/cart'>Cart</Link>
         </Item>
         <Item>
-          <Link to="/cart">Cart</Link>
+          <Link to='/board'>문의 게시판</Link>
         </Item>
         <Item>
-          <Link to="/login">Login</Link>
+          <Link to='/login'>Login</Link>
         </Item>
       </List>
     </div>
