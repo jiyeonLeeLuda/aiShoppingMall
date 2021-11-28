@@ -12,14 +12,16 @@ const BannerBottom = memo(() => {
     },
   ];
   return (
-    <ImageGallery
-      items={images}
-      showFullscreenButton={false}
-      showThumbnails={false}
-      showPlayButton={false}
-      showNav={false}
-      autoPlay
-    />
+    <a href='https://www.instagram.com/clumppy.by.wigglewiggle/'>
+      <ImageGallery
+        items={images}
+        showFullscreenButton={false}
+        showThumbnails={false}
+        showPlayButton={false}
+        showNav={false}
+        autoPlay
+      />
+    </a>
   );
 });
 
