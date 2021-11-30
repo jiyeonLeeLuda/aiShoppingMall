@@ -2,10 +2,9 @@ import React, { useRef, useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Layout from '../../components/layout/Layout';
-import styles from './CsWritePage.module.css';
-import './ckEditor.css';
+import styles from './CsViewerPage.module.css';
 
-const CsWritePage = ({ db }) => {
+const CsViewerPage = ({ db }) => {
   const [contents, setContents] = useState('');
   const inputTitle = useRef();
   const inputAuthor = useRef();
@@ -28,18 +27,19 @@ const CsWritePage = ({ db }) => {
   return (
     <Layout>
       <div className={styles.container}>
-        <h1>문의 하기</h1>
+        <h1>문의 내용</h1>
         <div className={styles.inputContainer}>
           제목
           <input ref={inputTitle} className={styles.inputTitle} type='text' />
           글쓴이
           <input ref={inputAuthor} className={styles.inputAuthor} type='text' />
-          비밀번호
-          <input
-            ref={inputPassword}
-            className={styles.inputPassword}
-            type='password'
-          />
+          <button
+            type='submit'
+            className={styles.btnSubmit}
+            onClick={onClickSubmit}
+          >
+            수정
+          </button>
         </div>
         <CKEditor
           editor={ClassicEditor}
@@ -54,16 +54,9 @@ const CsWritePage = ({ db }) => {
             setContents(data);
           }}
         />
-        <button
-          type='submit'
-          className={styles.btnSubmit}
-          onClick={onClickSubmit}
-        >
-          문의 등록하기
-        </button>
       </div>
     </Layout>
   );
 };
 
-export default CsWritePage;
+export default CsViewerPage;

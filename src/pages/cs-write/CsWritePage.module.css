@@ -9,7 +9,7 @@
   width: 60rem;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 
 .inputTitle,
@@ -39,4 +39,10 @@
   border-radius: 1rem;
   padding: 0.4rem 0.2rem;
   margin: 1rem 0;
+  cursor: pointer;
+}
+
+.btnSubmit:hover {
+  background-color: tomato;
+  color: white;
 }
