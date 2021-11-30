@@ -7,7 +7,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { Button } from '@mui/material';
 import Layout from '../../components/layout/Layout';
 import styles from './CsBoardPage.module.css';
 
@@ -114,7 +113,9 @@ export default function CsBoardPage() {
     <Layout title='CS'>
       <section className={styles.container}>
         <h1 className={styles.title}>문의 게시판</h1>
-        <button className={styles.btnWrite}>문의 하기</button>
+        <button type='button' className={styles.btnWrite}>
+          문의 하기
+        </button>
         <Paper
           sx={{
             overflow: 'hidden',
