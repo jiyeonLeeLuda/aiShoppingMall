@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import { useHistory } from 'react-router';
 import Layout from '../../components/layout/Layout';
 import styles from './CsBoardPage.module.css';
 
@@ -34,70 +35,10 @@ const columns = [
 
 const formatDate = (date) =>
   ` ${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
-const rows = [
-  {
-    id: 1,
-    title: '대량구매 문의 드립니다.',
-    author: '홍길동',
-    createdAt: 1607110465663,
-  },
-  {
-    id: 1,
-    title: '대량구매 문의 드립니다.',
-    author: '홍길동',
-    createdAt: 1607110465663,
-  },
-  {
-    id: 1,
-    title: '대량구매 문의 드립니다.',
-    author: '홍길동',
-    createdAt: 1607110465663,
-  },
-  {
-    id: 1,
-    title: '대량구매 문의 드립니다.',
-    author: '홍길동',
-    createdAt: 1607110465663,
-  },
-  {
-    id: 1,
-    title: '대량구매 문의 드립니다.',
-    author: '홍길동',
-    createdAt: 1607110465663,
-  },
-  {
-    id: 1,
-    title: '대량구매 문의 드립니다.',
-    author: '홍길동',
-    createdAt: 1607110465663,
-  },
-  {
-    id: 1,
-    title: '대량구매 문의 드립니다.',
-    author: '홍길동',
-    createdAt: 1607110465663,
-  },
-  {
-    id: 1,
-    title: '대량구매 문의 드립니다.',
-    author: '홍길동',
-    createdAt: 1607110465663,
-  },
-  {
-    id: 1,
-    title: '대량구매 문의 드립니다.',
-    author: '홍길동',
-    createdAt: 1607110465663,
-  },
-  {
-    id: 1,
-    title: '대량구매 문의 드립니다.',
-    author: '홍길동',
-    createdAt: 1607110465663,
-  },
-];
 
-export default function CsBoardPage() {
+export default function CsBoardPage({ db }) {
+  const history = useHistory();
+  const [rows, setRows] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
@@ -109,11 +50,27 @@ export default function CsBoardPage() {
     setRowsPerPage(event.target.value);
     setPage(0);
   };
+
+  useEffect(() => {
+    // get data
+    db.readCsPosts(setRows);
+  }, []);
+
+  const handleClickWrite = () => {
+    history.push('/board/write');
+  };
+  const handleClickPost = (id) => {
+    history.push(`/board/${id}`);
+  };
   return (
     <Layout title='CS'>
       <section className={styles.container}>
         <h1 className={styles.title}>문의 게시판</h1>
-        <button type='button' className={styles.btnWrite}>
+        <button
+          type='button'
+          className={styles.btnWrite}
+          onClick={handleClickWrite}
+        >
           문의 하기
         </button>
         <Paper
@@ -144,15 +101,10 @@ export default function CsBoardPage() {
                 {rows
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row) => (
-                    <TableRow
-                      hover
-                      role='checkbox'
-                      tabIndex={-1}
-                      key={row.code}
-                    >
+                    <TableRow hover role='checkbox' tabIndex={-1} key={row.id}>
                       <TableCell>{row.id}</TableCell>
                       <TableCell align='center'>
-                        <a href='#'>{row.title}</a>
+                        <a href={`/board/${row.id}`}>{row.title}</a>
                       </TableCell>
                       <TableCell align='right'>{row.author}</TableCell>
                       <TableCell align='right'>

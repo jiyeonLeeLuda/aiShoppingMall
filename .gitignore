@@ -19,3 +19,6 @@ coverage
 ## build
 dist/
 build/
+
+## api keys
+.env
