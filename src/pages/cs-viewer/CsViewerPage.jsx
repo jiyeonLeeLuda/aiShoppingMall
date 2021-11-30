@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useHistory, useParams } from 'react-router';
@@ -7,12 +7,13 @@ import styles from './CsViewerPage.module.css';
 
 const CsViewerPage = ({ db }) => {
   const { id } = useParams();
+  const history = useHistory();
   const [post, setPost] = useState({});
-  const inputTitle = useRef();
-  const inputAuthor = useRef();
-
+  const onClickToEdit = () => {
+    history.push(`/board/edit/${id}`);
+  };
   useEffect(() => {
-    console.log(db.readCsPost(id, setPost));
+    db.readCsPost(id, setPost);
   }, []);
   return (
     <Layout>
@@ -32,7 +33,11 @@ const CsViewerPage = ({ db }) => {
             toolbar: ['heading', '|', 'bold', 'italic', 'undo', 'redo'],
           }}
         />
-        <button type='submit' className={styles.btnSubmit}>
+        <button
+          type='submit'
+          className={styles.btnSubmit}
+          onClick={onClickToEdit}
+        >
           수정 / 삭제
         </button>
       </div>

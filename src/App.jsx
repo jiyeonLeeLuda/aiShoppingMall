@@ -11,6 +11,7 @@ import OrderPage from './pages/OrderPage';
 import NotFoundPage from './pages/NotFoundPage';
 import CsWritePage from './pages/cs-write/CsWritePage';
 import CsViewerPage from './pages/cs-viewer/CsViewerPage';
+import CsEditorPage from './pages/cs-editor/CsEditorPage';
 
 export default function App({ db }) {
   return (
@@ -21,6 +22,9 @@ export default function App({ db }) {
         <CsWritePage db={db} />
       </Route>
 
+      <Route path='/board/edit/:id'>
+        <CsEditorPage db={db} />
+      </Route>
       <Route path='/board/:id'>
         <CsViewerPage db={db} />
       </Route>

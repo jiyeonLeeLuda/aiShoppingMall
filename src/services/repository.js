@@ -1,11 +1,11 @@
 import {
   getFirestore,
-  addDoc,
   collection,
   getDocs,
   doc,
   setDoc,
   getDoc,
+  deleteDoc,
 } from 'firebase/firestore';
 
 class Repository {
@@ -13,12 +13,12 @@ class Repository {
     this.db = getFirestore();
   }
 
-  async addCsPost(post, moveToBoard) {
+  async addCsPost(post, moveTo) {
     try {
       const csRef = collection(this.db, 'cs-posts');
       await setDoc(doc(csRef, `${post.id}`), post);
-      moveToBoard();
-      alert('등록되었습니다');
+      moveTo();
+      alert('반영되었습니다');
     } catch (e) {
       console.error('Error adding document: ', e);
       alert(`오류 : ${e}`);
@@ -38,17 +38,28 @@ class Repository {
   }
 
   async readCsPost(id, setData) {
-    // console.log(id);
     const docRef = doc(this.db, 'cs-posts', `${id}`);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      // console.log('Document data:', docSnap.data());
       setData(docSnap.data());
     } else {
-      // doc.data() will be undefined in this case
+      // 예외처리 추가하기 . 존재하지 않는 게시글 입니다. 안내
       console.log('No such document!');
     }
+  }
+
+  async editPost(post, moveTo) {
+    // 비밀번호 검사 추가 필요 , OR oauth 로그인 처리  추가하기.
+    this.addCsPost(post, moveTo);
+  }
+
+  async deletePost(post, moveTo) {
+    // 비밀번호 검사 추가 필요 OR oauth 로그인 처리  추가하기.
+    const csRef = collection(this.db, 'cs-posts');
+    await deleteDoc(doc(csRef, `${post.id}`));
+    moveTo();
+    alert('삭제되었습니다.');
   }
 }
 

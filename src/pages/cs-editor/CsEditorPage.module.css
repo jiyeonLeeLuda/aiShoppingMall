@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputContainer {
+  width: 60rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.inputTitle,
+.inputAuthor,
+.inputPassword {
+  outline: none;
+  background-color: rgba(255, 244, 242, 0.872);
+  border: 2px solid tomato;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+.inputTitle {
+  width: 30rem;
+}
+.inputAuthor {
+}
+.inputPassword {
+}
+.btnSubmit {
+  width: 20rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: tomato;
+  background-color: transparent;
+  border: 3px solid tomato;
+  border-radius: 1rem;
+  padding: 0.4rem 0.2rem;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+.btnSubmit:hover {
+  background-color: tomato;
+  color: white;
+}
