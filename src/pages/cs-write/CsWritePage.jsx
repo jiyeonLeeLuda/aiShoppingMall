@@ -4,13 +4,18 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Layout from '../../components/layout/Layout';
 import styles from './CsWritePage.module.css';
 import './ckEditor.css';
+import { useHistory } from 'react-router';
 
 const CsWritePage = ({ db }) => {
   const [contents, setContents] = useState('');
   const inputTitle = useRef();
   const inputAuthor = useRef();
   const inputPassword = useRef();
+  const history = useHistory();
 
+  const moveToBoard = () => {
+    history.push('/board');
+  };
   const onClickSubmit = () => {
     const createdAt = new Date().getTime();
     const post = {
@@ -22,7 +27,7 @@ const CsWritePage = ({ db }) => {
       createdAt,
     };
     console.log(post);
-    db.addCsPost(post);
+    db.addCsPost(post, moveToBoard);
   };
 
   return (

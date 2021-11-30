@@ -21,7 +21,9 @@ export default function App({ db }) {
         <CsWritePage db={db} />
       </Route>
 
-      <Route path='/board/:id' component={CsViewerPage} />
+      <Route path='/board/:id'>
+        <CsViewerPage db={db} />
+      </Route>
       <Route exact path='/board'>
         <CsBoardPage db={db} />
       </Route>
