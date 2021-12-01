@@ -1,9 +1,3 @@
-import Layout from '../components/layout/Layout';
-
 export default function OrderPage() {
-  return (
-    <Layout title='주문하기'>
-      <p>주문하기</p>
-    </Layout>
-  );
+  return <p>주문하기</p>;
 }

@@ -1,10 +1,12 @@
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { List, Item } from '../styles/Menu';
-import { get } from '../util/commonUtils';
 
-const MenuBar = () => {
-  const loginUser = useSelector(get('user'));
+const MenuBar = ({ authService }) => {
+  const [loginUser, setLoginUser] = useState({ uid: null, displayName: null });
+  useEffect(() => {
+    authService.onAuthChange(setLoginUser);
+  }, [authService]);
   return (
     <div>
       <List>

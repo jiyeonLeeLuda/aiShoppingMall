@@ -15,7 +15,7 @@ class Repository {
 
   async addCsPost(post, moveTo) {
     try {
-      const csRef = collection(this.db, 'cs-posts');
+      const csRef = collection(this.db, `users/${post.uid}/cs-posts`);
       await setDoc(doc(csRef, `${post.id}`), post);
       moveTo();
       alert('반영되었습니다');
@@ -25,8 +25,10 @@ class Repository {
     }
   }
 
-  async readCsPosts(setRows) {
-    const querySnapshot = await getDocs(collection(this.db, 'cs-posts'));
+  async readCsPosts(setRows, uid) {
+    const querySnapshot = await getDocs(
+      collection(this.db, `users/${uid}/cs-posts`)
+    );
     const datas = [];
     querySnapshot.forEach((doc) => {
       const data = doc.data();
@@ -37,8 +39,8 @@ class Repository {
     setRows(datas);
   }
 
-  async readCsPost(id, setData) {
-    const docRef = doc(this.db, 'cs-posts', `${id}`);
+  async readCsPost(id, setData, uid) {
+    const docRef = doc(this.db, `users/${uid}/cs-posts`, `${id}`);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
@@ -56,7 +58,7 @@ class Repository {
 
   async deletePost(post, moveTo) {
     // 비밀번호 검사 추가 필요 OR oauth 로그인 처리  추가하기.
-    const csRef = collection(this.db, 'cs-posts');
+    const csRef = collection(this.db, `users/${post.uid}/cs-posts`);
     await deleteDoc(doc(csRef, `${post.id}`));
     moveTo();
     alert('삭제되었습니다.');

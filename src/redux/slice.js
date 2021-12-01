@@ -7,7 +7,6 @@ const initialState = {
   itemAmount: 1,
   detailImgIndex: 0,
   cart: [],
-  user: {},
 };
 
 const reducers = {
@@ -115,12 +114,6 @@ const reducers = {
     // todo : 중복제거 리팩토링 할 것.
     // todo : 로그인 할 경우, user의 장바구니를 서버에 저장할 것인지 고민
   },
-  setLoginUser(state, { payload: user }) {
-    return {
-      ...state,
-      user,
-    };
-  },
 };
 
 const { actions, reducer } = createSlice({
@@ -139,7 +132,6 @@ export const {
   setCart,
   changeCartItemAmount,
   selectDetailImgIndex,
-  setLoginUser,
 } = actions;
 
 export function synchonizeCart() {
