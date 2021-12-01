@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import { StyledFirebaseAuth } from 'react-firebaseui';
+import { useDispatch } from 'react-redux';
 import Layout from '../../components/layout/Layout';
+import { setLoginUser } from '../../redux/slice';
 
 export default function LoginPage({ authService }) {
   const [user, setUser] = useState({});
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const unsubscribe = authService.onAuthChange(setUser);
@@ -12,6 +15,18 @@ export default function LoginPage({ authService }) {
     };
   }, [authService]);
 
+  useEffect(() => {
+    if (user) {
+      dispatch(
+        setLoginUser({
+          id: user.uid,
+          nickName: user.displayName,
+        })
+      );
+    } else {
+      dispatch(setLoginUser({}));
+    }
+  }, [user]);
   return (
     <Layout>
       {!user && (
