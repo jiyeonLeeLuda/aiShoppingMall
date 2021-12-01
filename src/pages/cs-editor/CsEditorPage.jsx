@@ -4,21 +4,25 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useHistory, useParams } from 'react-router';
 import styles from './CsEditorPage.module.css';
 
-const CsEditorPage = ({ db }) => {
+const CsEditorPage = ({ db, authService }) => {
   const history = useHistory();
   const { id } = useParams();
   const [post, setPost] = useState({});
   const [contents, setContents] = useState('');
+  const [loginUser, setLoginUser] = useState({
+    id: null,
+    nickName: null,
+  });
   const inputTitle = useRef();
-  const inputAuthor = useRef();
-  const inputPassword = useRef();
+
   const onClickEdit = () => {
     const updatedPost = {
+      uid: loginUser.id,
       id,
       title: inputTitle.current.value || '',
-      author: inputAuthor.current.value || '',
+      author: loginUser.nickName,
       contents,
-      password: inputPassword.current.value || '',
+      createdAt: Number(id),
     };
     db.editPost(updatedPost, () => {
       history.push(`/board/${id}`);
@@ -28,15 +32,23 @@ const CsEditorPage = ({ db }) => {
     db.deletePost(
       {
         id,
-        password: inputPassword.current.value,
+        uid: loginUser.id,
       },
       () => {
         history.push('/board');
       }
     );
   };
+
   useEffect(() => {
-    console.log(db.readCsPost(id, setPost));
+    authService.onAuthChange((user) => {
+      if (!user) {
+        history.push('/login');
+      } else {
+        setLoginUser({ id: user.uid, nickName: user.displayName });
+        db.readCsPost(id, setPost, user.uid);
+      }
+    });
   }, []);
   return (
     <div className={styles.container}>
@@ -51,16 +63,10 @@ const CsEditorPage = ({ db }) => {
         />
         글쓴이
         <input
-          ref={inputAuthor}
+          disabled
           className={styles.inputAuthor}
           type='text'
           defaultValue={post.author}
-        />
-        비밀번호
-        <input
-          ref={inputPassword}
-          className={styles.inputPassword}
-          type='password'
         />
       </div>
       <CKEditor

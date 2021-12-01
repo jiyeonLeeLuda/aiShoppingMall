@@ -24,17 +24,17 @@ export default function App({ db, authService }) {
           <LoginPage authService={authService} />
         </Route>
         <Route exact path='/board/write'>
-          <CsWritePage db={db} />
+          <CsWritePage db={db} authService={authService} />
         </Route>
 
         <Route path='/board/edit/:id'>
-          <CsEditorPage db={db} />
+          <CsEditorPage db={db} authService={authService} />
         </Route>
         <Route path='/board/:id'>
-          <CsViewerPage db={db} />
+          <CsViewerPage db={db} authService={authService} />
         </Route>
         <Route exact path='/board'>
-          <CsBoardPage db={db} />
+          <CsBoardPage db={db} authService={authService} />
         </Route>
         <Route path='/shop/items/:id' component={ShopItemDetailPage} />
         <Route path='/shop/items/' component={ShopPage} />

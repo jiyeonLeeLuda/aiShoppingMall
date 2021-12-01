@@ -9,6 +9,7 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { useHistory } from 'react-router';
+
 import styles from './CsBoardPage.module.css';
 
 const columns = [
@@ -36,8 +37,12 @@ const columns = [
 const formatDate = (date) =>
   `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
 
-export default function CsBoardPage({ db }) {
+export default function CsBoardPage({ db, authService }) {
   const history = useHistory();
+  const [loginUser, setLoginUser] = useState({
+    id: null,
+    nickName: null,
+  });
   const [rows, setRows] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -54,9 +59,24 @@ export default function CsBoardPage({ db }) {
   const handleClickWrite = () => {
     history.push('/board/write');
   };
+
+  useEffect(() => {
+    // get data
+
+    authService.onAuthChange((user) => {
+      if (!user) {
+        history.push('/login');
+      } else {
+        setLoginUser({ id: user.uid, nickName: user.displayName });
+        db.readCsPosts(setRows, user.uid);
+      }
+    });
+  }, [db, authService]);
+
   return (
     <section className={styles.container}>
-      <h1 className={styles.title}>문의 게시판</h1>
+      <h1 className={styles.title}>1:1 문의</h1>
+      <h3>{`${loginUser.nickName}님의 문의 내역입니다.`}</h3>
       <button
         type='button'
         className={styles.btnWrite}

@@ -4,16 +4,25 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useHistory, useParams } from 'react-router';
 import styles from './CsViewerPage.module.css';
 
-const CsViewerPage = ({ db }) => {
+const CsViewerPage = ({ db, authService }) => {
   const { id } = useParams();
   const history = useHistory();
   const [post, setPost] = useState({});
+
   const onClickToEdit = () => {
     history.push(`/board/edit/${id}`);
   };
+
   useEffect(() => {
-    db.readCsPost(id, setPost);
-  }, []);
+    authService.onAuthChange((user) => {
+      if (!user) {
+        history.push('/login');
+      } else {
+        // setLoginUser({ id: user.uid, nickName: user.displayName });
+        db.readCsPost(id, setPost, user.uid);
+      }
+    });
+  }, [db, authService]);
   return (
     <div className={styles.container}>
       <h1>문의 내용</h1>
