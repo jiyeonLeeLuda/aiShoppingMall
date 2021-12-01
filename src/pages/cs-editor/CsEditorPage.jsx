@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useHistory, useParams } from 'react-router';
-import Layout from '../../components/layout/Layout';
 import styles from './CsEditorPage.module.css';
 
 const CsEditorPage = ({ db }) => {
@@ -40,60 +39,54 @@ const CsEditorPage = ({ db }) => {
     console.log(db.readCsPost(id, setPost));
   }, []);
   return (
-    <Layout>
-      <div className={styles.container}>
-        <h1>문의 내용</h1>
-        <div className={styles.inputContainer}>
-          제목
-          <input
-            ref={inputTitle}
-            className={styles.inputTitle}
-            type='text'
-            defaultValue={post.title}
-          />
-          글쓴이
-          <input
-            ref={inputAuthor}
-            className={styles.inputAuthor}
-            type='text'
-            defaultValue={post.author}
-          />
-          비밀번호
-          <input
-            ref={inputPassword}
-            className={styles.inputPassword}
-            type='password'
-          />
-        </div>
-        <CKEditor
-          editor={ClassicEditor}
-          data={post.contents}
-          config={{
-            // 여기에 config 입력
-            toolbar: ['heading', '|', 'bold', 'italic', 'undo', 'redo'],
-          }}
-          onChange={(event, editor) => {
-            const data = editor.getData();
-            console.log({ event, editor, data });
-            setContents(data);
-          }}
+    <div className={styles.container}>
+      <h1>문의 내용</h1>
+      <div className={styles.inputContainer}>
+        제목
+        <input
+          ref={inputTitle}
+          className={styles.inputTitle}
+          type='text'
+          defaultValue={post.title}
         />
-        <button
-          type='submit'
-          className={styles.btnSubmit}
-          onClick={onClickEdit}
-        >
-          수정
-        </button>
-        <button
-          type='submit'
-          className={styles.btnSubmit}
-          onClick={onClickDelete}
-        >
-          삭제
-        </button>
+        글쓴이
+        <input
+          ref={inputAuthor}
+          className={styles.inputAuthor}
+          type='text'
+          defaultValue={post.author}
+        />
+        비밀번호
+        <input
+          ref={inputPassword}
+          className={styles.inputPassword}
+          type='password'
+        />
       </div>
-    </Layout>
+      <CKEditor
+        editor={ClassicEditor}
+        data={post.contents}
+        config={{
+          // 여기에 config 입력
+          toolbar: ['heading', '|', 'bold', 'italic', 'undo', 'redo'],
+        }}
+        onChange={(event, editor) => {
+          const data = editor.getData();
+          console.log({ event, editor, data });
+          setContents(data);
+        }}
+      />
+      <button type='submit' className={styles.btnSubmit} onClick={onClickEdit}>
+        수정
+      </button>
+      <button
+        type='submit'
+        className={styles.btnSubmit}
+        onClick={onClickDelete}
+      >
+        삭제
+      </button>
+    </div>
   );
 };
 

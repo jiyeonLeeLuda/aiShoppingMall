@@ -7,13 +7,11 @@ const BodyArea = styled.main({
   minHeight: '70vh',
 });
 
-export default function Layout({ children }) {
+export default function Layout({ children, authService }) {
   return (
     <>
-      <HeaderArea />
-      <BodyArea>
-        {children}
-      </BodyArea>
+      <HeaderArea authService={authService} />
+      <BodyArea>{children}</BodyArea>
       <FooterArea />
     </>
   );

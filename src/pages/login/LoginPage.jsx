@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { StyledFirebaseAuth } from 'react-firebaseui';
-import { useDispatch } from 'react-redux';
-import Layout from '../../components/layout/Layout';
-import { setLoginUser } from '../../redux/slice';
 
 export default function LoginPage({ authService }) {
   const [user, setUser] = useState({});
-  const dispatch = useDispatch();
+
+  const onClickLogout = () => {
+    authService.signOut();
+  };
 
   useEffect(() => {
     const unsubscribe = authService.onAuthChange(setUser);
@@ -15,20 +15,8 @@ export default function LoginPage({ authService }) {
     };
   }, [authService]);
 
-  useEffect(() => {
-    if (user) {
-      dispatch(
-        setLoginUser({
-          id: user.uid,
-          nickName: user.displayName,
-        })
-      );
-    } else {
-      dispatch(setLoginUser({}));
-    }
-  }, [user]);
   return (
-    <Layout>
+    <>
       {!user && (
         <>
           {' '}
@@ -43,9 +31,9 @@ export default function LoginPage({ authService }) {
         <div>
           <h1>My App</h1>
           <p>Welcome {user.displayName}! You are now signed-in!</p>
-          <button onClick={() => authService.signOut()}>Sign-out</button>
+          <button onClick={onClickLogout}>Sign-out</button>
         </div>
       )}
-    </Layout>
+    </>
   );
 }

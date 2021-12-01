@@ -1,7 +1,6 @@
 import YouTube from 'react-youtube';
 import styled from '@emotion/styled';
 import { aiRecomands, bests } from '../../../dummyDatas/recomandItems.json';
-import Layout from '../../components/layout/Layout';
 import BannerTop from '../../components/banners/bannerTop';
 import BannerBottom from '../../components/banners/bannerBottom';
 import RecomandList from '../../components/recomandList/recomandList';
@@ -30,7 +29,7 @@ export default function HomePage() {
   };
 
   return (
-    <Layout title='home'>
+    <>
       <BannerTop />
       <section className={styles.recomands}>
         <h3>맞춤 추천 상품</h3>
@@ -68,6 +67,6 @@ export default function HomePage() {
       </section>
 
       <BannerBottom />
-    </Layout>
+    </>
   );
 }
