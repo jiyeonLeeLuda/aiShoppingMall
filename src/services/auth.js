@@ -11,7 +11,7 @@ class AuthService {
     this.githubProvider = new GithubAuthProvider();
     this.uiConfig = {
       signInFlow: 'popup',
-      signInSuccessUrl: '/mypage',
+      // signInSuccessUrl: '/mypage',
       signInOptions: [
         GoogleAuthProvider.PROVIDER_ID,
         GithubAuthProvider.PROVIDER_ID,
