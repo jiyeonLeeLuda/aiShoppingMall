@@ -4,7 +4,7 @@ import './App.css';
 import HomePage from './pages/home/HomePage';
 import LoginPage from './pages/login/LoginPage';
 import CsBoardPage from './pages/cs-board/CsBoardPage';
-import ShopPage from './pages/ShopPage';
+import ShopPage from './pages/shop/ShopPage';
 import ShopItemDetailPage from './pages/ShopItemDetailPage';
 import CartPage from './pages/CartPage';
 import OrderPage from './pages/OrderPage';

@@ -9,11 +9,15 @@
   flex-direction: column;
   text-decoration: none;
   color: #333;
+  position: relative;
 }
 .link:hover {
   opacity: 0.8;
 }
 .img {
+}
+.iconBest {
+  position: absolute;
 }
 .name {
   text-overflow: ellipsis;
