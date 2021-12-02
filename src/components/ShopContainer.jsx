@@ -18,13 +18,13 @@ export default function ShopContainer() {
   };
   const sortOption = useSelector(get('sortOption'));
   const sortedItems = [...items].sort(
-    itemSorts[sortOption || 'orderByCreatedAt'],
+    itemSorts[sortOption || 'orderByCreatedAt']
   );
 
   return (
-    <>
+    <section>
       <SortOptions />
       <ShopPageList items={sortedItems} />
-    </>
+    </section>
   );
 }

@@ -1,0 +1,38 @@
+.item {
+  margin: 0;
+  flex: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.item:hover {
+  opacity: 80%;
+}
+
+.itemTitle {
+  max-width: 18rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bolder;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.itemPriceContainer {
+  width: 100%;
+  text-align: end;
+  margin-bottom: 1rem;
+}
+.itemReviewContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.itemReviewText {
+  color: rgb(116, 116, 116);
+}
