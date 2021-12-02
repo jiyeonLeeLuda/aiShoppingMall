@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactStarsRating from 'react-awesome-stars-rating';
 import styles from './recomandItem.module.css';
+import { currencyFomater } from '../../util/commonUtils';
 
 const RecomandItem = ({ item }) => {
   const { id, img, name, realPrice, score } = item;
@@ -15,7 +16,9 @@ const RecomandItem = ({ item }) => {
             value={score}
             isEdit={false}
           />
-          <p className={styles.price}>{realPrice}원</p>
+          <p className={styles.price}>
+            {currencyFomater({ number: realPrice, currency: '원' })}
+          </p>
         </div>
       </a>
     </li>
