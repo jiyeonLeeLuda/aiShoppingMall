@@ -72,6 +72,16 @@ const reducers = {
     }
     return state;
   },
+  changeCartItemChekedAll(state, { payload: { checked } }) {
+    const { cart } = state;
+
+    const updatedCart = cart.map((item) => ({ ...item, checked }));
+
+    return {
+      ...state,
+      cart: updatedCart,
+    };
+  },
   removeSelectedCartIem(state) {
     const { cart } = state;
 
@@ -128,6 +138,7 @@ export const {
   changeItemAmountField,
   addItemToCart,
   changeCartItemCheked,
+  changeCartItemChekedAll,
   removeSelectedCartIem,
   setCart,
   changeCartItemAmount,

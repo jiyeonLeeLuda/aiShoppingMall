@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.amountBoxGruop {
+  width: 30rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.amountBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.amount {
+  font-weight: bold;
+}
+
+.btnOrder {
+  width: 20rem;
+  height: 2.3rem;
+  background-color: transparent;
+  color: tomato;
+  font-weight: bold;
+  font-size: 1rem;
+  border: 3px solid tomato;
+  border-radius: 1rem;
+  cursor: pointer;
+  margin-top: 3rem;
+}
+
+.btnOrder:hover {
+  background-color: tomato;
+  color: white;
+}
+
+.notice {
+  color: #c14;
+}
