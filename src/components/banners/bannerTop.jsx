@@ -18,14 +18,18 @@ const BannerTop = memo(() => {
     },
   ];
   return (
-    <ImageGallery
-      items={images}
-      showFullscreenButton={false}
-      showThumbnails={false}
-      showPlayButton={false}
-      showBullets
-      autoPlay
-    />
+    <a href='/shop/items'>
+      <ImageGallery
+        items={images}
+        showFullscreenButton={false}
+        showThumbnails={false}
+        showPlayButton={false}
+        showNav={false}
+        showBullets
+        autoPlay
+        preventDefaultTouchmoveEvent
+      />
+    </a>
   );
 });
 
