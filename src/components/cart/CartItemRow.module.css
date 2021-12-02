@@ -1,0 +1,24 @@
+.itemInfo {
+  display: flex;
+  align-items: center;
+}
+.itemImg {
+  width: 5rem;
+}
+.itemName {
+  width: 15rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 1rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.itemCount {
+  width: 3rem;
+  border: 0;
+  border-bottom: 2px solid gray;
+  text-align: center;
+  outline: none;
+}

@@ -1,54 +1,76 @@
-import CartItemRow from './CartItemRow';
 import {
+  Paper,
   Table,
-  Thead,
-  Tbody,
-  DelteButton,
-  Container,
-} from '../../styles/CartPageStyle';
+  TableHead,
+  TableBody,
+  TableRow,
+  TableCell,
+  TableContainer,
+} from '@mui/material';
+import CartItemRow from './CartItemRow';
+import styles from './CartItemsTable.module.css';
 
 export default function CartItemTable({
   cart,
   onChangeCheckBox,
+  onChangeCheckBoxAll,
   onClickDeleteButton,
   onChangeItemAmount,
 }) {
   return (
-    <Container>
-      <Table>
-        <Thead>
-          <tr>
-            <th>
-              <label htmlFor="checkAll">
-                <input
-                  type="checkbox"
-                  id="checkAll"
-                  name="checkAll"
-                  value="checkAll"
+    <section>
+      <Paper
+        sx={{
+          overflow: 'hidden',
+          minWidth: 750,
+        }}
+      >
+        <TableContainer>
+          <Table>
+            <TableHead>
+              <TableRow
+                sx={{
+                  backgroundColor: '#CCC',
+                }}
+              >
+                <TableCell>
+                  <label htmlFor='checkAll'>
+                    <input
+                      type='checkbox'
+                      id='checkAll'
+                      name='checkAll'
+                      value='checkAll'
+                      onChange={onChangeCheckBoxAll}
+                    />
+                  </label>
+                </TableCell>
+                <TableCell align='center'>상품정보</TableCell>
+                <TableCell>수량</TableCell>
+                <TableCell>상품 금액</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {cart.map((item) => (
+                <CartItemRow
+                  key={item.id}
+                  item={item}
+                  onChangeCheckBox={onChangeCheckBox}
+                  onChangeItemAmount={onChangeItemAmount}
                 />
-              </label>
-            </th>
-            <th>상품정보</th>
-            <th>수량</th>
-            <th>상품 금액</th>
-          </tr>
-        </Thead>
-        <Tbody>
-          {cart.map((item) => (
-            <CartItemRow
-              key={item.id}
-              item={item}
-              onChangeCheckBox={onChangeCheckBox}
-              onChangeItemAmount={onChangeItemAmount}
-            />
-          ))}
-        </Tbody>
-      </Table>
-      <div>
-        <DelteButton type="button" onClick={onClickDeleteButton}>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Paper>
+      <div className={styles.btnContainer}>
+        <button
+          className={styles.btnDelete}
+          type='button'
+          onClick={onClickDeleteButton}
+        >
           선택 상품 삭제
-        </DelteButton>
+        </button>
       </div>
-    </Container>
+    </section>
   );
 }

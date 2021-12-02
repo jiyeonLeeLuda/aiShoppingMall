@@ -6,7 +6,7 @@ import LoginPage from './pages/login/LoginPage';
 import CsBoardPage from './pages/cs-board/CsBoardPage';
 import ShopPage from './pages/shop/ShopPage';
 import ShopItemDetailPage from './pages/ShopItemDetailPage';
-import CartPage from './pages/CartPage';
+import CartPage from './pages/cart/CartPage';
 import OrderPage from './pages/OrderPage';
 import NotFoundPage from './pages/NotFoundPage';
 import CsWritePage from './pages/cs-write/CsWritePage';
