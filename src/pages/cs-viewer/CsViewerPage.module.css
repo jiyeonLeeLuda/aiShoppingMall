@@ -4,16 +4,21 @@
   justify-content: center;
   align-items: center;
 }
-
+.flexContainer {
+  /* 반응형 디자인 적용 */
+  display: flex;
+  align-items: center;
+}
 .inputContainer {
-  width: 60rem;
+  width: 30rem;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   margin: 1rem 0;
 }
 
-.inputTitle,
-.inputAuthor {
+.inputTitle {
+  width: 100%;
   outline: none;
   background-color: rgba(242, 240, 240, 0.872);
   border: 2px solid gray;
@@ -21,14 +26,15 @@
   border-right: none;
   border-left: none;
 }
-.inputTitle {
-  width: 40rem;
-}
-.inputAuthor {
-  width: 15rem;
-  text-align: center;
-}
 
+.imgContainer {
+  margin-left: 1rem;
+}
+.btnContainer {
+  width: 30rem;
+  display: flex;
+  justify-content: space-evenly;
+}
 .btnSubmit {
   width: 10rem;
   font-size: 1rem;
@@ -45,4 +51,20 @@
 .btnSubmit:hover {
   background-color: tomato;
   color: white;
+}
+
+.btnDelete {
+  color: #c14;
+  border: 3px solid #c14;
+}
+.btnDelete:hover {
+  background-color: #c14;
+  color: white;
+}
+
+@media screen and (max-width: 50rem) {
+  .flexContainer {
+    flex-direction: column;
+    align-items: center;
+  }
 }

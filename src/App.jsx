@@ -15,7 +15,7 @@ import CsEditorPage from './pages/cs-editor/CsEditorPage';
 import MyPage from './pages/mypage/MyPage';
 import Layout from './components/layout/Layout';
 
-export default function App({ db, authService }) {
+export default function App({ db, authService, FileInput }) {
   return (
     <Layout authService={authService}>
       <Switch>
@@ -24,11 +24,19 @@ export default function App({ db, authService }) {
           <LoginPage authService={authService} />
         </Route>
         <Route exact path='/board/write'>
-          <CsWritePage db={db} authService={authService} />
+          <CsWritePage
+            db={db}
+            authService={authService}
+            FileInput={FileInput}
+          />
         </Route>
 
         <Route path='/board/edit/:id'>
-          <CsEditorPage db={db} authService={authService} />
+          <CsEditorPage
+            db={db}
+            authService={authService}
+            FileInput={FileInput}
+          />
         </Route>
         <Route path='/board/:id'>
           <CsViewerPage db={db} authService={authService} />

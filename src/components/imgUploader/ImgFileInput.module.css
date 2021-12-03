@@ -1,0 +1,36 @@
+.input {
+  display: none;
+}
+.btnImg {
+  width: 10rem;
+  margin-top: 0.5rem;
+  border-radius: 1rem;
+  padding: 0.3rem 0.2rem;
+  font-weight: bold;
+  border: 3px solid gray;
+  background-color: transparent;
+  color: gray;
+  cursor: pointer;
+}
+.btnImg:hover {
+  background-color: gray;
+  color: white;
+}
+
+.loading {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 3px solid gray;
+  border-top: 3px solid tomato;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

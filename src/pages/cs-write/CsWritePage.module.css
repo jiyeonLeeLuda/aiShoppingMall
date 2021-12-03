@@ -5,29 +5,42 @@
   align-items: center;
 }
 
-.inputContainer {
-  width: 60rem;
+.flexContainer {
+  /* 반응형 디자인 적용 */
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+}
+.inputContainer {
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+
   margin: 1rem 0;
 }
-
-.inputTitle,
-.inputAuthor,
-.inputPassword {
+.titleContainer {
+  width: 30rem;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+.inputTitle {
+  width: 90%;
   outline: none;
   background-color: rgba(255, 244, 242, 0.872);
   border: 2px solid tomato;
   border-top: none;
   border-right: none;
   border-left: none;
+  text-align: center;
+  margin: 1rem 0;
 }
-.inputTitle {
-  width: 30rem;
-}
-.inputAuthor {
-}
-.inputPassword {
+
+.imgContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  margin-left: 1rem;
 }
 .btnSubmit {
   width: 20rem;
@@ -45,4 +58,11 @@
 .btnSubmit:hover {
   background-color: tomato;
   color: white;
+}
+
+@media screen and (max-width: 50rem) {
+  .flexContainer {
+    flex-direction: column;
+    align-items: center;
+  }
 }
