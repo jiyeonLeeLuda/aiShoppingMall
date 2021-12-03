@@ -24,12 +24,8 @@ const CsEditorPage = ({ db, authService, FileInput }) => {
   const onClickEdit = () => {
     const updatedPost = {
       ...post,
-      // uid: loginUser.id,
-      // id,
       title: inputTitle.current.value || '',
-      // author: loginUser.nickName,
       contents,
-      // createdAt: Number(id),
       fileName: file.fileName || '',
       fileURL: file.fileURL || '',
     };
