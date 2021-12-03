@@ -20,10 +20,10 @@ const CsWritePage = ({ db, authService, FileInput }) => {
   const moveToBoard = () => {
     history.push('/board');
   };
-  const onChangeFile = (file) => {
+  const onChangeFile = (mFile) => {
     setFile({
-      fileName: file.name,
-      fileURL: file.url,
+      fileName: mFile.name,
+      fileURL: mFile.url,
     });
   };
   const onClickSubmit = () => {
