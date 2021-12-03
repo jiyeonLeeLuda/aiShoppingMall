@@ -17,7 +17,7 @@ const MenuBar = ({ authService }) => {
           <Link to='/cart'>Cart</Link>
         </Item>
         <Item>
-          <Link to='/board'>1:1 문의 게시판</Link>
+          <Link to='/board'>1:1 문의</Link>
         </Item>
         <Item>
           <Link to='/login'>{loginUser ? 'Logout' : 'Login'}</Link>

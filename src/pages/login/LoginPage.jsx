@@ -1,4 +1,4 @@
-import { memo, useEffect, useMemo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { StyledFirebaseAuth } from 'react-firebaseui';
 import styles from './LoginPage.module.css';
 
@@ -40,7 +40,7 @@ const LoginPage = memo(({ authService }) => {
             className={styles.btnLogout}
             onClick={onClickLogout}
           >
-            Log-out
+            Logout
           </button>
         </div>
       )}

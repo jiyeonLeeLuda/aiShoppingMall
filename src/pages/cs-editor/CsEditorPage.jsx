@@ -41,13 +41,15 @@ const CsEditorPage = ({ db, authService }) => {
   };
 
   useEffect(() => {
-    authService.onAuthChange((user) => {
+    const unsubscribe = authService.onAuthChange((user) => {
       if (!user) {
         history.push('/login');
       } else {
         setLoginUser({ id: user.uid, nickName: user.displayName });
         db.readCsPost(id, setPost, user.uid);
       }
+
+      return unsubscribe();
     });
   }, []);
   return (

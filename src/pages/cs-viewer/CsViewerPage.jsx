@@ -14,15 +14,18 @@ const CsViewerPage = ({ db, authService }) => {
   };
 
   useEffect(() => {
-    authService.onAuthChange((user) => {
+    const unsubscribe = authService.onAuthChange((user) => {
       if (!user) {
         history.push('/login');
+        alert('로그인이 필요합니다.');
       } else {
         // setLoginUser({ id: user.uid, nickName: user.displayName });
         db.readCsPost(id, setPost, user.uid);
       }
+
+      return unsubscribe();
     });
-  }, [db, authService]);
+  }, []);
   return (
     <div className={styles.container}>
       <h1>문의 내용</h1>
