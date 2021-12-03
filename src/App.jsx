@@ -32,7 +32,11 @@ export default function App({ db, authService, FileInput }) {
         </Route>
 
         <Route path='/board/edit/:id'>
-          <CsEditorPage db={db} authService={authService} />
+          <CsEditorPage
+            db={db}
+            authService={authService}
+            FileInput={FileInput}
+          />
         </Route>
         <Route path='/board/:id'>
           <CsViewerPage db={db} authService={authService} />
