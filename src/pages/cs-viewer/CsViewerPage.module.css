@@ -35,7 +35,9 @@
   display: flex;
   justify-content: space-evenly;
 }
-.btnSubmit {
+.btnSubmit,
+.btnDelYes,
+.btnDelNo {
   width: 10rem;
   font-size: 1rem;
   font-weight: bold;
@@ -67,4 +69,28 @@
     flex-direction: column;
     align-items: center;
   }
+}
+
+.modalBtnBox {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btnDelYes {
+  width: 5rem;
+  color: #c14;
+  border-color: #c14;
+}
+.btnDelYes:hover {
+  background-color: #c14;
+  color: white;
+}
+.btnDelNo {
+  width: 5rem;
+  color: gray;
+  border-color: gray;
+}
+.btnDelNo:hover {
+  background-color: gray;
+  color: white;
 }
