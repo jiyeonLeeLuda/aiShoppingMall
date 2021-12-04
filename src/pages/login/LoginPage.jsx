@@ -20,7 +20,7 @@ const LoginPage = memo(({ authService }) => {
     <>
       {!user && (
         <div className={styles.container}>
-          <h2>Login with ...</h2>
+          <h2>소셜로그인으로 간편하게 로그인하세요!</h2>
           <StyledFirebaseAuth
             uiConfig={authService.uiConfig}
             firebaseAuth={authService.firebaseAuth}
@@ -29,10 +29,7 @@ const LoginPage = memo(({ authService }) => {
       )}
       {user && (
         <div className={styles.container}>
-          <h3>
-            {user.displayName}
-            님은 현재 로그인중입니다.
-          </h3>
+          <h3>{user.displayName}님 환영합니다!</h3>
           <p>로그아웃을 하려면 아래버튼을 눌러주세요.</p>
 
           <button
