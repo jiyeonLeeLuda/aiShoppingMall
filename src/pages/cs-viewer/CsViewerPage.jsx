@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useHistory, useParams } from 'react-router';
+import { Modal, Box } from '@mui/material';
 import styles from './CsViewerPage.module.css';
 import ImgViewer from '../../components/imgUploader/ImgViewer';
 
@@ -9,6 +10,7 @@ const CsViewerPage = ({ db, authService }) => {
   const { id } = useParams();
   const history = useHistory();
   const [post, setPost] = useState({});
+  const [open, setOpen] = useState(false);
   const [loginUser, setLoginUser] = useState({
     id: null,
     nickName: null,
@@ -17,6 +19,7 @@ const CsViewerPage = ({ db, authService }) => {
     history.push(`/board/edit/${id}`);
   };
   const onClickDelete = () => {
+    setOpen(false);
     db.deletePost(
       {
         id,
@@ -27,7 +30,19 @@ const CsViewerPage = ({ db, authService }) => {
       }
     );
   };
-
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '15rem',
+    bgcolor: 'background.paper',
+    borderRadius: '0.5rem',
+    boxShadow: 24,
+    p: 2,
+  };
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   useEffect(() => {
     const unsubscribe = authService.onAuthChange((user) => {
       if (!user) {
@@ -65,7 +80,7 @@ const CsViewerPage = ({ db, authService }) => {
         <button
           type='button'
           className={`${styles.btnSubmit} ${styles.btnDelete}`}
-          onClick={onClickDelete}
+          onClick={handleOpen}
         >
           삭제
         </button>
@@ -76,6 +91,19 @@ const CsViewerPage = ({ db, authService }) => {
         >
           수정
         </button>
+        <Modal open={open} onClose={handleClose}>
+          <Box sx={style}>
+            <h4>정말 삭제하시겠습니까?</h4>
+            <div className={styles.modalBtnBox}>
+              <button className={styles.btnDelYes} onClick={onClickDelete}>
+                네
+              </button>
+              <button className={styles.btnDelNo} onClick={handleClose}>
+                아니오
+              </button>
+            </div>
+          </Box>
+        </Modal>
       </div>
     </div>
   );
