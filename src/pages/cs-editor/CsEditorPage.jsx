@@ -29,9 +29,13 @@ const CsEditorPage = ({ db, authService, FileInput }) => {
       fileName: file.fileName || '',
       fileURL: file.fileURL || '',
     };
-    db.editPost(updatedPost, () => {
-      history.push(`/board/${id}`);
-    });
+    if (!updatedPost.title || !updatedPost.contents) {
+      alert('제목과 내용을 입력해주세요');
+    } else {
+      db.editPost(updatedPost, () => {
+        history.push(`/board/${id}`);
+      });
+    }
   };
 
   useEffect(() => {

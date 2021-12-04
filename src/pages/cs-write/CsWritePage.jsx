@@ -38,7 +38,11 @@ const CsWritePage = ({ db, authService, FileInput }) => {
       fileURL: file.fileURL || '',
       createdAt,
     };
-    db.addCsPost(post, moveToBoard);
+    if (!post.title || !post.contents) {
+      alert('제목과 내용을 입력해주세요');
+    } else {
+      db.addCsPost(post, moveToBoard);
+    }
   };
 
   useEffect(() => {
