@@ -5,7 +5,7 @@ import HomePage from './pages/home/HomePage';
 import LoginPage from './pages/login/LoginPage';
 import CsBoardPage from './pages/cs-board/CsBoardPage';
 import ShopPage from './pages/shop/ShopPage';
-import ShopItemDetailPage from './pages/ShopItemDetailPage';
+import ShopItemDetailPage from './pages/shop-detail/ShopItemDetailPage';
 import CartPage from './pages/cart/CartPage';
 import OrderPage from './pages/OrderPage';
 import NotFoundPage from './pages/NotFoundPage';

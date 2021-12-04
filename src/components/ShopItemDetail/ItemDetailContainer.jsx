@@ -11,7 +11,6 @@ import { get } from '../../util/commonUtils';
 import { dummyItems } from '../../../dummyDatas/shopItems.json';
 import InfoArea from './InfoArea';
 import ImgArea from './ImgArea';
-// import ImgAreaSwiper from './ImgAreaSwiper';
 
 const HeadGroup = styled.div({
   display: 'flex',
@@ -29,7 +28,6 @@ const BodyGroup = styled.div({
 
 export default function ItemDetailContainer({ id }) {
   // todo : fetch item info.
-
   const shopItem = dummyItems.find((item) => item.id === Number(id));
 
   const itemAmount = useSelector(get('itemAmount'));
@@ -51,11 +49,14 @@ export default function ItemDetailContainer({ id }) {
   }
 
   function handleAddItemToCart() {
+    alert('상품이 추가되었습니다.');
     dispatch(addItemToCart(shopItem));
   }
 
   function handleItemAmount(event) {
-    const { target: { value: amount } } = event;
+    const {
+      target: { value: amount },
+    } = event;
     dispatch(changeItemAmountField(Number(amount)));
   }
 
@@ -76,7 +77,7 @@ export default function ItemDetailContainer({ id }) {
       </HeadGroup>
       <BodyGroup>
         <p>{`상품 아이디 ${id} 디테일 컷`}</p>
-        <img src={shopItem.descriptionImg} alt="상품 설명 이미지" />
+        <img src={shopItem.descriptionImg} alt='상품 설명 이미지' />
       </BodyGroup>
     </>
   );
