@@ -46,6 +46,7 @@ const reducers = {
       const updatedCart = [...cart];
       updatedCart[index] = updatedItem;
 
+      saveObjItem('cart', updatedCart);
       return {
         ...state,
         cart: updatedCart,

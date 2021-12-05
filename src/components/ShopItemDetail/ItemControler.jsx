@@ -9,6 +9,7 @@ export default function ItemControler({ itemAmount, onChange, onClick }) {
           className={styles.input}
           id='ItemAmount'
           type='number'
+          min='1'
           value={itemAmount}
           onChange={(event) => {
             onChange(event);
