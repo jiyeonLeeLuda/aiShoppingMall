@@ -1,12 +1,13 @@
 import YouTube from 'react-youtube';
 import styled from '@emotion/styled';
+import { memo } from 'react';
 import { aiRecomands, bests } from '../../../dummyDatas/recomandItems.json';
 import BannerTop from '../../components/banners/bannerTop';
 import BannerBottom from '../../components/banners/bannerBottom';
 import RecomandList from '../../components/recomandList/recomandList';
 import styles from './homePage.module.css';
 
-export default function HomePage() {
+function HomePage() {
   const YouTubeArea = styled.section({
     backgroundColor: '#000',
     position: 'relative',
@@ -70,3 +71,5 @@ export default function HomePage() {
     </>
   );
 }
+
+export default memo(HomePage);

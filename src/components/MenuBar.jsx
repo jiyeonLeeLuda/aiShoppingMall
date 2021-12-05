@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { List, Item } from '../styles/Menu';
 
-const MenuBar = ({ authService }) => {
+const MenuBar = memo(({ authService }) => {
   const [loginUser, setLoginUser] = useState({ uid: null, displayName: null });
   useEffect(() => {
     authService.onAuthChange(setLoginUser);
@@ -25,6 +25,6 @@ const MenuBar = ({ authService }) => {
       </List>
     </div>
   );
-};
+});
 
 export default MenuBar;

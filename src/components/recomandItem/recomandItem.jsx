@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import ReactStarsRating from 'react-awesome-stars-rating';
 import styles from './recomandItem.module.css';
 import { currencyFomater } from '../../util/commonUtils';
 
-const RecomandItem = ({ item }) => {
+const RecomandItem = memo(({ item }) => {
   const { id, img, name, realPrice, score, isBest } = item;
   const iconBest = '/public/imgs/best.png';
   return (
@@ -27,6 +27,6 @@ const RecomandItem = ({ item }) => {
       </a>
     </li>
   );
-};
+});
 
 export default RecomandItem;
