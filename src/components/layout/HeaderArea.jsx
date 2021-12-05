@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import MenuBar from '../MenuBar';
@@ -10,7 +11,7 @@ const Header = styled.header({
   },
 });
 
-export default function HeaderArea({ authService }) {
+function HeaderArea({ authService }) {
   return (
     <Header>
       <Link to='/'>
@@ -20,3 +21,5 @@ export default function HeaderArea({ authService }) {
     </Header>
   );
 }
+
+export default memo(HeaderArea);

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { memo } from 'react';
 
 const Footer = styled.footer({
   backgroundColor: '#CCC',
@@ -10,7 +11,7 @@ const Footer = styled.footer({
   },
 });
 
-export default function FooterArea() {
+function FooterArea() {
   return (
     <Footer>
       <p>
@@ -21,3 +22,5 @@ export default function FooterArea() {
     </Footer>
   );
 }
+
+export default memo(FooterArea);
