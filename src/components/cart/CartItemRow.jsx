@@ -47,6 +47,7 @@ export default function CartItemRow({
             aria-label={amountInputLabel}
             id={amountInputLabel}
             type='number'
+            min='1'
             value={itemAmount}
             onChange={(event) => {
               onChangeAmount(event);
